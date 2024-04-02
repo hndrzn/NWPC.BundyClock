@@ -1,0 +1,397 @@
+﻿/*-----------------------------------------------------*/
+/* Outer rounded rectangle container for elements */
+.bundy-container {
+    background: #ffffff;
+    border: 6px solid;
+    border-color: #4cbb17;
+    border-radius: 30px;
+    width: 60vw;
+    height: 60vh;
+    position: fixed;
+    bottom: 50%;
+    right: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* Inner rounded rectangle container for elements */
+.bundy-container-two {
+    background: #82b710;
+    width: 60vw;
+    height: 65vh;
+    border-radius: 30px;
+    position: fixed;
+    left: 48%;
+    right: 50%;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.current-date-time-container {
+    position: fixed;
+    z-index: inherit;
+    left: 30.5%;
+    top: 17%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: Roboto;
+    user-select: none;
+}
+
+    .current-date-time-container p {
+        margin: 0;
+        padding: 0;
+    }
+
+.current-time {
+    font-size: 40px;
+}
+
+.current-day-date {
+    font-size: 18px;
+}
+
+
+/* Rounded rectangle container for numpad */
+.numpad-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    position: fixed;
+    top: 22%;
+    left: 65%;
+    right: 90%;
+    bottom: 40%;
+    z-index: 5;
+    width: 183px;
+    height: 240px;
+}
+
+/* Numpad container for digits */
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.digit {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset;
+}
+
+    .digit:hover {
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .digit:active {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .digit.del {
+        background-color: rgba(255, 0, 0, 0.5);
+    }
+
+        .digit.del:hover {
+            background-color: rgba(255, 0, 0, 0.7);
+        }
+
+        .digit.del:active {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+    .digit.dum {
+        background-color: white;
+        color: white;
+        border: none;
+        pointer-events: none;
+    }
+
+.switch-key {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 255, 0.5);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
+    .switch-key:hover {
+        background-color: rgba(0, 0, 255, 0.7);
+    }
+
+    .switch-key:active {
+        background-color: rgba(0, 0, 255, 0.3);
+    }
+
+.keypad-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    position: fixed;
+    top: 40%;
+    left: 54%;
+    z-index: inherit;
+    height: 20%;
+    width: 348px;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.keypad-letter {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset;
+    margin-bottom: 5px;
+    margin-right: 2px;
+}
+
+.hidden {
+    display: none;
+}
+
+.keypad-letter:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.keypad-letter:active {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.keypad-letter.del {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+    .keypad-letter.del:hover {
+        background-color: rgba(255, 0, 0, 0.7);
+    }
+
+    .keypad-letter.del:active {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+.keypad-letter.dum {
+    background-color: white;
+    color: white;
+    border: none;
+    pointer-events: none;
+}
+
+.switch-key-abc {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 255, 0.5);
+    color: #fff;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
+    .switch-key-abc:hover {
+        background-color: rgba(0, 0, 255, 0.7);
+    }
+
+    .switch-key-abc:active {
+        background-color: rgba(0, 0, 255, 0.3);
+    }
+
+.forms-container {
+    position: fixed;
+    background-color: transparent;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 20.5vh;
+    padding: 20px;
+    max-width: 40%;
+    top: 25.5%;
+    left: 11%;
+    z-index: 40;
+}
+
+.input-container {
+    bottom: 17%;
+    height: 50px;
+    position: relative;
+    width: 100%;
+    z-index: inherit;
+}
+
+.ic1 {
+    margin-top: 7%;
+    z-index: inherit;
+}
+
+.input {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 2px, #65657b;
+    box-sizing: border-box;
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+    padding-left: 15px;
+}
+
+    .input:focus {
+        border-color: #65657b;
+        outline: none;
+    }
+
+.cut {
+    background-color: white;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 88px;
+}
+
+.cut-short {
+    width: 50px;
+}
+
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+    transform: translateY(8px);
+}
+
+.placeholder {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+}
+
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:placeholder-shown) ~ .placeholder {
+    color: #65657b;
+}
+
+.input:focus ~ .placeholder {
+    color: #65657b;
+}
+
+.submit {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    margin-top: 25px;
+    text-align: center;
+    width: 100%;
+    z-index: inherit;
+    border-radius: 25px;
+}
+
+    .submit:active {
+        background-color: #06b;
+        z-index: inherit;
+    }
+
+.fieldset-forms {
+    height: 100%;
+    border-radius: 15px;
+    border-color: #65657b;
+    outline: 0;
+    max-width: 100%;
+    padding-top: 0%;
+    padding-left: 11%;
+    padding-bottom: 8%;
+}
+
+.time-in,
+.lunch-in {
+    height: 30px;
+    max-width: 45%;
+    background-color: #32CD32;
+    border-radius: 18px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+    z-index: inherit;
+    border-radius: 25px;
+}
+
+    .time-in:active,
+    .lunch-in:active {
+        background-color: #4c7f0e;
+        box-shadow: 0 0 10px 0 #3a5d09;
+    }
+
+.time-out,
+.lunch-out {
+    height: 30px;
+    max-width: 45%;
+    background-color: #D22B2B;
+    border-radius: 18px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+    z-index: inherit;
+    border-radius: 25px;
+}
+
+    .time-out:active,
+    .lunch-out:active {
+        background-color: #ff4d4d;
+        box-shadow: 0 0 10px 0 #ff4d4d;
+    }
