@@ -16,5 +16,10 @@ namespace NWPC.BundyClock.Services
             var employees = await _context.Employees.ToListAsync();
             return employees;
         }
+
+        public List<EmployeeData> SearchEmployee()
+        {
+            return _context.Employees.ToList();
+        }
     }
 }

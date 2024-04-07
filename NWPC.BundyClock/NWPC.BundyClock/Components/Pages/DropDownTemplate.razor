@@ -1,0 +1,33 @@
+@page "/autocomplete"
+
+<h3>Autocomplete Demo</h3>
+
+<input @ref="textInput" @oninput="Search" class="form-control" placeholder="Enter text">
+
+@if (filteredItems != null && filteredItems.Any())
+{
+    <ul class="autocomplete">
+        @foreach (var item in filteredItems)
+        {
+            <li @onclick="(() => SelectItem(item))">@item</li>
+        }
+    </ul>
+}
+
+@code {
+    private List<string> items = new List<string> { "Apple", "Banana", "Cherry", "Date", "Elderberry", "Fig", "Grape" };
+    private List<string> filteredItems;
+    private ElementReference textInput;
+
+    private void Search(ChangeEventArgs e)
+    {
+        string searchText = e.Value.ToString().ToLower();
+        filteredItems = items.Where(i => i.ToLower().Contains(searchText)).ToList();
+    }
+
+    private void SelectItem(string selectedItem)
+    {
+        // You can handle the selected item here
+        Console.WriteLine("Selected item: " + selectedItem);
+    }
+}
