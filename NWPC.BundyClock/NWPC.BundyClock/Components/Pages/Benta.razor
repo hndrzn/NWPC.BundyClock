@@ -7,11 +7,11 @@
 <div class="input-container ic1">
     <input id="employeeID" class="input" type="text" list="EmployeeData" placeholder=" " autocomplete="on" />
     <datalist id="EmployeeData">
-        @foreach (var employee in employee)
-        {
-            <option>@($"{employee.EmployeeName} - {employee.EmployeeID}")</option>
-        }
-    </datalist>
+    @foreach (var employee in employee)
+    {
+        <option>@employee.EmployeeName</option>
+    }
+</datalist>
     <div class="cut"></div>
     <label for="employeeID" class="placeholder">Employee ID</label>
 </div>

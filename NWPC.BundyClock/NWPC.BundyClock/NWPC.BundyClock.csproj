@@ -7,19 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Components\Pages\DropDownTemplate.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Blazored.Typeahead" Version="4.7.0" />
-    <PackageReference Include="Blazorise" Version="1.5.1" />
-    <PackageReference Include="Microsoft.AspNetCore.OData.Radzen" Version="1.0.12" />
+    <PackageReference Include="MatBlazor" Version="2.10.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="2.0.0-preview1-final" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0-preview.2.24128.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Radzen.Blazor" Version="4.29.1" />
     <ProjectReference Include="..\NWPC.BundyClock.Client\NWPC.BundyClock.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0-preview.2.24128.4" />
@@ -32,18 +26,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Scripts\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Components\Pages\DropDownTemplate.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Components\Pages\DropDownTemplate.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Components\Pages\DropDownTemplate.razor" />
   </ItemGroup>
 
 </Project>
