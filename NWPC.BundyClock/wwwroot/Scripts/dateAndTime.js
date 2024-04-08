@@ -1,4 +1,4 @@
-function updateTime() {
+ function updateTime() {
     var now = new Date();
     var timeString = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' });
     var dayString = now.toLocaleDateString('en-US', { weekday: 'long' });
