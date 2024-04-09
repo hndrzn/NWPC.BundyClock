@@ -8,9 +8,16 @@ namespace NWPC.BundyClock.Data
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         {
-            
+
         }
 
         public DbSet<EmployeeData> Employees { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<EmployeeData>()
+                .Property(e => e.EmployeePhoto)
+                .HasColumnType("varbinary(max)");
+        }
     }
 }

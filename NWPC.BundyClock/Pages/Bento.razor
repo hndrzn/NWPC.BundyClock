@@ -1,0 +1,50 @@
+﻿@page "/bento"
+@inject IEmployeeServices EmployeeService
+
+<h3>benta</h3>
+
+@if (employee == null)
+{
+    <span>Loading...</span>
+}
+else if (employee.Count == 0)
+{
+    <span>Wala boi</span>
+}
+else
+{
+    <ul>
+        @foreach (var employee in employee)
+        {
+            <div>
+                <p>@employee.EmployeeName</p>
+                <p>@employee.EmployeeID</p>
+                <div class="profile-picture">
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(employee.EmployeePhoto)" alt="Employee Photo" />
+                </div>
+            </div>
+        }
+    </ul>
+}
+
+<style>
+    .profile-picture img {
+        border-radius: 50%;
+        border: 2px solid #fff; /* White border around the circular image */
+        box-shadow: 0 0 0 2px #007bff; /* Blue shadow around the circular image */
+        width: 100px; /* Adjust the width of the image as needed */
+        height: 100px; /* Adjust the height of the image as needed */
+        object-fit: cover; /* Ensure the image covers the circular area */
+    }
+</style>
+
+
+@code
+{
+    List<EmployeeData>? employee = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        employee = await EmployeeService.GetAllEmployees();
+    }
+}
