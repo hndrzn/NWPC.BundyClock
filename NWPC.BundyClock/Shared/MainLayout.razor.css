@@ -19,7 +19,7 @@
 
 .nwpc-banner {
     left: 1%;
-    top: 2%;
+    top: 1%;
     position: fixed;
     z-index: 3;
     max-width: 50vw;
@@ -32,7 +32,7 @@
 .bottom-border {
     background: #b6e556;
     width: 100vw;
-    height: 16vh;
+    height: 14vh;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -42,7 +42,7 @@
 .second-bottom-border {
     background: #96ca2f;
     width: 99vw;
-    height: 14vh;
+    height: 12vh;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -52,7 +52,7 @@
 .third-bottom-border {
     background: #82b710;
     width: 98vw;
-    height: 12vh;
+    height: 10vh;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -62,7 +62,7 @@
 .top-border {
     background: #b6e556;
     width: 100vw;
-    height: 16vh;
+    height: 15vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -72,7 +72,7 @@
 .second-top-border {
     background: #96ca2f;
     width: 99vw;
-    height: 14vh;
+    height: 13vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -82,7 +82,7 @@
 .third-top-border {
     background: #82b710;
     width: 98vw;
-    height: 12vh;
+    height: 11vh;
     position: fixed;
     top: 0;
     left: 0;

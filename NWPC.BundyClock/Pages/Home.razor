@@ -10,7 +10,7 @@
     <p class="current-day-date" id="current-day-date"></p>
 </div>
 
-<div class="numpad-container">
+<div class="numpad-container" id="onScreenNumpad">
     <div class="numpad">
         <button class="digit" onclick="updateInput('1')">1</button>
         <button class="digit" onclick="updateInput('2')">2</button>
@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<div class="letter-keypad-container hidden" id="letterKeypad">
+    <div class="letter-keypad-container hidden" id="onScreenletterKeypad">
     <div class="keypad-container">
         <div class="keypad">
             <button class="keypad-letter" onclick="updateInput('q')">q</button>
@@ -72,16 +72,7 @@
         <button type="text" class="lunch-in">Lunch In</button>
         <button type="text" class="lunch-out">Lunch Out</button>
     </fieldset>
-
-    <!-- LINK FOR AUTOCOMPLETE FUNCTION -->
-    <form autocomplete="on">
-        <div class="input-container ic1">
-            <input id="employeeID" class="input" type="text" placeholder=" " autocomplete="on" disabled />
-            <div class="cut"></div>
-            <label for="employeeID" class="placeholder">Employee ID</label>
-        </div>
-    </form>
-
+        <EmployeeInput />
     <button type="text" class="submit">Submit</button>
 </div>
 </div>
