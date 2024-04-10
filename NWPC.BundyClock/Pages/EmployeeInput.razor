@@ -1,12 +1,12 @@
-﻿@page "/input"
-@inject IEmployeeServices EmployeeService
+﻿@inject IEmployeeServices EmployeeService
+@inject IJSRuntime JSRuntime
 
 <MudGrid>
     <MudItem xs="12" sm="6" md="12">
         <div class="d-flex align-center">
             <MudAutocomplete T="EmployeeData" Id="employeeInput" Label="Search Employee" @bind-Value="selectedEmployee" SearchFunc="@SearchEmployees"
-                             AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" style="padding-top: 7%;"
-                             AnchorOrigin="Origin.BottomCenter" MaxHeight="200">
+                             AdornmentIcon="@Icons.Material.Filled.Person" AdornmentColor="Color.Primary" style="padding-top: 4%;"
+                             AnchorOrigin="Origin.BottomCenter" MaxHeight="200" Clearable ResetValueOnEmptyText="true">
                 <ItemTemplate Context="result">
                     <MudItem Class="d-flex align-center">
                         <div class="d-flex align-center">
@@ -17,7 +17,6 @@
                     </MudItem>
                 </ItemTemplate>
             </MudAutocomplete>
-
         </div>
     </MudItem>
 </MudGrid>
@@ -38,6 +37,8 @@
         if (string.IsNullOrEmpty(searchText) || Employees == null)
             return new List<EmployeeData>();
 
-        return Employees.Where(employee => employee.EmployeeName.Contains(searchText, StringComparison.InvariantCultureIgnoreCase));
+        return Employees.Where(employee =>
+            employee.EmployeeName.Contains(searchText, StringComparison.InvariantCultureIgnoreCase) ||
+            employee.EmployeeID.ToString().Contains(searchText));
     }
 }

@@ -1,6 +1,5 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
@@ -21,3 +20,16 @@
 <div class="second-bottom-border"></div>
 <div class="third-bottom-border"></div>
 <!-- End of Objects for Bottom part -->
+
+<MudThemeProvider Theme="MyCustomTheme" />
+
+@code {
+    MudTheme MyCustomTheme = new MudTheme()
+        {
+            Palette = new PaletteLight()
+            {
+                Primary = Colors.Blue.Darken4,
+                Secondary = Colors.Green.Accent4,
+            },
+        };
+}

@@ -2,6 +2,7 @@
 @inject IJSRuntime JSRuntime
 
 <PageTitle>NWPC Bundy Clock</PageTitle>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="bundy-container">
 
@@ -65,13 +66,15 @@
 
 <!-- Forms for Bundy Selection and ID -->
 <div class="forms-container">
-    <fieldset class="fieldset-forms">
-        <legend style="color: #65657b; font-family: Arial, sans-serif;">Select Bundy Type:</legend>
-        <button type="text" class="time-in">Time In</button>
-        <button type="text" class="time-out">Time Out</button>
-        <button type="text" class="lunch-in">Lunch In</button>
-        <button type="text" class="lunch-out">Lunch Out</button>
-    </fieldset>
+
+        <MudField Label="Select Bundy Type:" Variant="Variant.Outlined">
+            <button type="submit" class="time-in" onclick="highlightButton(this)">Time In</button>
+            <button type="submit" class="time-out" onclick="highlightButton(this)">Time Out</button>
+            <button type="submit" class="lunch-in" onclick="highlightButton(this)">Lunch In</button>
+            <button type="submit" class="lunch-out" onclick="highlightButton(this)">Lunch Out</button>
+        </MudField>
+
+
         <EmployeeInput />
     <button type="text" class="submit">Submit</button>
 </div>
@@ -79,7 +82,3 @@
 
 <!-- Green Rounded Rectangle behind the Main Bundy Container -->
 <div class="bundy-container-two"></div>
-
-@code {
-
-}
