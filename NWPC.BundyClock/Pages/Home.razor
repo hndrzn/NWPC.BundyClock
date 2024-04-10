@@ -1,5 +1,8 @@
 ﻿@page "/"
 @inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager;
+@inject IEmployeeServices EmployeeService
+@inject IBundyStateService BundyStateService
 
 <PageTitle>NWPC Bundy Clock</PageTitle>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,10 +78,87 @@
         </MudField>
 
 
-        <EmployeeInput />
-    <button type="text" class="submit">Submit</button>
+        <MudGrid>
+            <MudItem xs="12" sm="6" md="12">
+                <div class="d-flex align-center">
+                    <MudAutocomplete T="EmployeeData" Id="employeeInput" Label="Search Employee" @bind-Value="selectedEmployee" SearchFunc="@SearchEmployees"
+                                     AdornmentIcon="@Icons.Material.Filled.Person" AdornmentColor="Color.Primary" style="padding-top: 4%;"
+                                     AnchorOrigin="Origin.BottomCenter" MaxHeight="200" Clearable ResetValueOnEmptyText="true"
+                                     autocomplete="off">
+                        <ItemTemplate Context="result">
+                            <MudItem Class="d-flex align-center">
+                                <div class="d-flex align-center">
+                                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(@result.EmployeePhoto)" alt="Employee Photo" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;" />
+                                    <MudText>@result.EmployeeName</MudText>
+                                    <MudChip Variant="Variant.Outlined" Color="Color.Primary" style="margin-left: 10px;">@result.EmployeeID.ToString()</MudChip>
+                                </div>
+                            </MudItem>
+                        </ItemTemplate>
+                    </MudAutocomplete>
+                </div>
+            </MudItem>
+        </MudGrid>
+
+        <button @onclick="SubmitForm" class="submit">Submit</button>
 </div>
 </div>
 
 <!-- Green Rounded Rectangle behind the Main Bundy Container -->
 <div class="bundy-container-two"></div>
+
+
+@code {
+    public EmployeeData selectedEmployee;
+    public List<EmployeeData> Employees;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Employees = await EmployeeService.GetAllEmployees();
+    }
+
+    public async Task<IEnumerable<EmployeeData>> SearchEmployees(string? searchText)
+    {
+        await Task.Delay(5);
+
+        if (string.IsNullOrEmpty(searchText) || Employees == null)
+            return new List<EmployeeData>();
+
+        return Employees.Where(employee =>
+            employee.EmployeeName.Contains(searchText, StringComparison.InvariantCultureIgnoreCase) ||
+            employee.EmployeeID.ToString().Contains(searchText));
+    }
+    private async Task SubmitForm()
+    {
+        // Call the JavaScript function to get the bundyType value
+        string bundyType = await JSRuntime.InvokeAsync<string>("getBundyType");
+
+        // Check if bundyType and selectedEmployee are not empty
+        if (!string.IsNullOrWhiteSpace(bundyType) && selectedEmployee != null)
+        {
+            // Set the bundyType in the shared state service
+            BundyStateService.BundyType = bundyType;
+
+            // Get the current date and time as string values
+            BundyStateService.CurrentDate = DateTime.Now.ToString("dddd, MMMM d, yyyy");
+            BundyStateService.CurrentTime = DateTime.Now.ToString("h:mm:ss tt");
+
+            // Store the selected employee data
+            BundyStateService.EmployeeName = selectedEmployee.EmployeeName;
+            BundyStateService.EmployeeID = selectedEmployee.EmployeeID;
+            BundyStateService.EmployeePhoto = selectedEmployee.EmployeePhoto;
+
+            // Redirect to the "/bundySuccess" page
+            NavigationManager.NavigateTo("/bundySuccess");
+        }
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Call the JavaScript function to reset the bundyType value after the initial render
+            await JSRuntime.InvokeVoidAsync("resetBundyType");
+        }
+    }
+}

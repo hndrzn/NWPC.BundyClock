@@ -14,6 +14,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddScoped<IEmployeeServices, EmployeeService>();
 builder.Services.AddScoped<EmployeeService>();
+builder.Services.AddSingleton<IBundyStateService, BundyStateService>();
 builder.Services.AddMudServices();
 
 
